@@ -52,7 +52,6 @@ namespace ControleRemotoBot
             this.txtAdmin.Name = "txtAdmin";
             this.txtAdmin.Size = new System.Drawing.Size(312, 23);
             this.txtAdmin.TabIndex = 0;
-            this.txtAdmin.Text = "89893407";
             // 
             // label1
             // 
@@ -80,7 +79,6 @@ namespace ControleRemotoBot
             this.txtToken.PasswordChar = '*';
             this.txtToken.Size = new System.Drawing.Size(352, 23);
             this.txtToken.TabIndex = 2;
-            this.txtToken.Text = "1630386203:AAHWdZ-3t8u1RYLLFRxXW7UN2AuqsiVQDko";
             // 
             // btnStart
             // 
