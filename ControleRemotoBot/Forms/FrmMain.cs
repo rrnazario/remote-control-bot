@@ -27,7 +27,7 @@ namespace ControleRemotoBot
         {
             if (e.Message.Text.Replace("'", "").Equals("/id", StringComparison.InvariantCultureIgnoreCase))
             {
-                await bot.SendTextMessageAsync(e.Message.Chat.Id, $"Seu ID é: {e.Message.Chat.Id}");
+                await bot.SendTextMessageAsync(e.Message.Chat.Id, $"Your ID is: {e.Message.Chat.Id}");
                 return;
             }
 
@@ -67,9 +67,9 @@ namespace ControleRemotoBot
             if (bot != null && bot.IsReceiving)
             {
                 bot.StopReceiving();
-                btnIniciar.Text = "Iniciar";
+                btnStart.Text = "Start";
 
-                Text = "Controle Remoto Bot - Parado";
+                Text = "Remote Control Bot - Stopped";
 
                 isReceiving = false;
             }
@@ -83,8 +83,8 @@ namespace ControleRemotoBot
 
                 SavePersonalInfo();
 
-                btnIniciar.Text = "Parar";
-                Text = "Controle Remoto Bot - Iniciado";
+                btnStart.Text = "Stop";
+                Text = "Remote Control Bot - Started";
 
                 isReceiving = true;
             }
@@ -125,7 +125,7 @@ namespace ControleRemotoBot
             {
                 try
                 {
-                    await bot.SendTextMessageAsync(id, "Botões configurados com sucesso.", replyMarkup: rkm);
+                    await bot.SendTextMessageAsync(id, "Buttons successful configured.", replyMarkup: rkm);
                 }
                 catch { }
             });
@@ -153,12 +153,12 @@ namespace ControleRemotoBot
             ltbConfiguredCommands.Items.AddRange(commands.Select(s => s.ToString()).ToArray());
         }
 
-        private void SaveCommands() => File.WriteAllLines("commands.txt", commands.Select(s => s.ToSave()));
+        private void SaveCommands() => File.WriteAllLines("commands", commands.Select(s => s.ToSave()));
         private void LoadCommands()
         {
-            if (File.Exists("commands.txt"))
+            if (File.Exists("commands"))
             {
-                commands.AddRange(File.ReadAllLines("commands.txt").Select(s => new Command(s)));
+                commands.AddRange(File.ReadAllLines("commands").Select(s => new Command(s)));
                 FillList();
             }
         }
@@ -225,6 +225,6 @@ namespace ControleRemotoBot
         }
 
         private void btnGetID_Click(object sender, EventArgs e)
-            => MessageBox.Show("Clique em Iniciar e, no Telegram, envie a palavra '/id'.\nEm seguida, clique em Parar e preencha esse campo com o ID.\nClique novamente em Iniciar para utilizar.", "Obter ID", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            => MessageBox.Show("Click on Start and, on Telegram, send the '/id' message. \nThen, click on Stop and fill the Admin ID field with your ID.\nClick again on Start button.", "Getting ID", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 }

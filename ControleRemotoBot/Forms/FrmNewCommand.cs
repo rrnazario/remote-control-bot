@@ -24,12 +24,12 @@ namespace ControleRemotoBot
             cbbCommand.Items.AddRange(Constants.AvailableCommands.Keys.ToArray());
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
             //Validations
             if (string.IsNullOrEmpty(cbbCommand.Text))
             {
-                MessageBox.Show("Favor informar o comando do botão", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please, inform the button command.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

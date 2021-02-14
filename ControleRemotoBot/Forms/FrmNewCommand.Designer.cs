@@ -50,18 +50,18 @@ namespace ControleRemotoBot
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(8, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 15);
+            this.label1.Size = new System.Drawing.Size(35, 15);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Nome:";
+            this.label1.Text = "Alias:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(8, 50);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 15);
+            this.label2.Size = new System.Drawing.Size(67, 15);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Comando:";
+            this.label2.Text = "Command:";
             // 
             // btnSalvar
             // 
@@ -70,9 +70,9 @@ namespace ControleRemotoBot
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(130, 38);
             this.btnSalvar.TabIndex = 4;
-            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.Text = "Save";
             this.btnSalvar.UseVisualStyleBackColor = true;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            this.btnSalvar.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // cbbCommand
             // 
@@ -101,7 +101,7 @@ namespace ControleRemotoBot
             this.MinimizeBox = false;
             this.Name = "FrmNewCommand";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Novo Comando";
+            this.Text = "New Command";
             this.Load += new System.EventHandler(this.FrmNewCommand_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

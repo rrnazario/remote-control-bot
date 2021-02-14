@@ -34,7 +34,7 @@ namespace ControleRemotoBot
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtToken = new System.Windows.Forms.TextBox();
-            this.btnIniciar = new System.Windows.Forms.Button();
+            this.btnStart = new System.Windows.Forms.Button();
             this.btnAddCommand = new System.Windows.Forms.Button();
             this.ltbConfiguredCommands = new System.Windows.Forms.ListBox();
             this.btnRemoveCommand = new System.Windows.Forms.Button();
@@ -82,16 +82,16 @@ namespace ControleRemotoBot
             this.txtToken.TabIndex = 2;
             this.txtToken.Text = "1630386203:AAHWdZ-3t8u1RYLLFRxXW7UN2AuqsiVQDko";
             // 
-            // btnIniciar
+            // btnStart
             // 
-            this.btnIniciar.Location = new System.Drawing.Point(299, 248);
-            this.btnIniciar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnIniciar.Name = "btnIniciar";
-            this.btnIniciar.Size = new System.Drawing.Size(130, 38);
-            this.btnIniciar.TabIndex = 4;
-            this.btnIniciar.Text = "Iniciar";
-            this.btnIniciar.UseVisualStyleBackColor = true;
-            this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
+            this.btnStart.Location = new System.Drawing.Point(299, 248);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(130, 38);
+            this.btnStart.TabIndex = 4;
+            this.btnStart.Text = "Start";
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnIniciar_Click);
             // 
             // btnAddCommand
             // 
@@ -130,9 +130,9 @@ namespace ControleRemotoBot
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(8, 88);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 15);
+            this.label3.Size = new System.Drawing.Size(72, 15);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Comandos:";
+            this.label3.Text = "Commands:";
             // 
             // btnUp
             // 
@@ -164,7 +164,7 @@ namespace ControleRemotoBot
             this.btnAddAll.Name = "btnAddAll";
             this.btnAddAll.Size = new System.Drawing.Size(41, 25);
             this.btnAddAll.TabIndex = 11;
-            this.btnAddAll.Text = "Todos";
+            this.btnAddAll.Text = "All";
             this.btnAddAll.UseVisualStyleBackColor = true;
             this.btnAddAll.Click += new System.EventHandler(this.btnAddAll_Click);
             // 
@@ -194,7 +194,7 @@ namespace ControleRemotoBot
             this.Controls.Add(this.btnRemoveCommand);
             this.Controls.Add(this.ltbConfiguredCommands);
             this.Controls.Add(this.btnAddCommand);
-            this.Controls.Add(this.btnIniciar);
+            this.Controls.Add(this.btnStart);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtToken);
             this.Controls.Add(this.label1);
@@ -205,7 +205,7 @@ namespace ControleRemotoBot
             this.MaximizeBox = false;
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Controle Remoto Bot - Parado";
+            this.Text = "Remote Control Bot - Stopped";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMain_FormClosed);
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.ResumeLayout(false);
@@ -219,7 +219,7 @@ namespace ControleRemotoBot
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtToken;
-        private System.Windows.Forms.Button btnIniciar;
+        private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnAddCommand;
         private System.Windows.Forms.ListBox ltbConfiguredCommands;
         private System.Windows.Forms.Button btnRemoveCommand;
