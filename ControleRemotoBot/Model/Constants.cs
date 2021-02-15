@@ -11,25 +11,25 @@ namespace ControleRemotoBot.Model
         public static Dictionary<string, Action> AvailableCommands = new()
         {
             {
-                "Espaço",
+                "Space",
                 () => inputSimulator.Keyboard.KeyDown(VirtualKeyCode.SPACE)
             },
 
             {
-                "Pra cima",
+                "Up",
                 () => inputSimulator.Keyboard.KeyDown(VirtualKeyCode.UP)
             },
 
             {
-                "Pra baixo",
+                "Down",
                 () => inputSimulator.Keyboard.KeyDown(VirtualKeyCode.DOWN)
             },
             {
-                "Esquerda",
+                "Left",
                 () => inputSimulator.Keyboard.KeyDown(VirtualKeyCode.LEFT)
             },
             {
-                "Direita",
+                "Right",
                 () => inputSimulator.Keyboard.KeyDown(VirtualKeyCode.RIGHT)
             },
             {
@@ -37,11 +37,11 @@ namespace ControleRemotoBot.Model
                 () => inputSimulator.Keyboard.KeyDown(VirtualKeyCode.TAB)
             },
             {
-                "Fechar",
+                "Alt+F4",
                 () => inputSimulator.Keyboard.ModifiedKeyStroke(VirtualKeyCode.MENU, VirtualKeyCode.F4)
             },
             {
-                "Trocar janela",
+                "Change Window",
                 () => inputSimulator.Keyboard.ModifiedKeyStroke(VirtualKeyCode.MENU, VirtualKeyCode.TAB)
             },
             {
