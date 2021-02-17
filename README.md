@@ -6,7 +6,7 @@ How about control your PC by a Telegram bot?
 - Download and compile this project OR [download a stable version here](https://www.dropbox.com/s/iymx407hat9nqfg/RemoteControlBot.zip?dl=1) unzip and execute "RemoteControlBot.exe" file.
 - On Token ID field, fill with your token. 
 - Choose your commands or simply add all available.
-- Click on "Start" and done! On your bot chat the buttons will appear and you can control your PC by your cellphone.
+- Click on "Start", go to your bot chat, send the command "/id" and done! The buttons will appear and you can control your PC by your cellphone.
 
 ## Tech
 
