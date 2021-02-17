@@ -6,7 +6,6 @@ using Telegram.Bot.Types.ReplyMarkups;
 using ControleRemotoBot.Model;
 using System.Linq;
 using System.IO;
-using System.Threading.Tasks;
 
 namespace ControleRemotoBot
 {
@@ -28,6 +27,15 @@ namespace ControleRemotoBot
             if (e.Message.Text.Replace("'", "").Equals("/id", StringComparison.InvariantCultureIgnoreCase))
             {
                 await bot.SendTextMessageAsync(e.Message.Chat.Id, $"Your ID is: {e.Message.Chat.Id}");
+
+                if (string.IsNullOrEmpty(txtAdmin.Text))
+                {
+                    if (txtAdmin.InvokeRequired)
+                        txtAdmin.Invoke((MethodInvoker)delegate { AddText(sender, e); });
+                    else
+                        AddText(sender, e);
+                }
+
                 return;
             }
 
@@ -37,6 +45,12 @@ namespace ControleRemotoBot
 
             if (foundCommand != null)
                 foundCommand.CommandAction.Invoke();
+        }
+
+        private void AddText(object sender, Telegram.Bot.Args.MessageEventArgs e)
+        {
+            txtAdmin.Text = e.Message.Chat.Id.ToString();
+            UpdateAdmins();
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -134,9 +148,7 @@ namespace ControleRemotoBot
 
             rkm.Keyboard = rows.ToArray();
 
-            adminsIds.Clear();
-            if (!string.IsNullOrEmpty(txtAdmin.Text))
-                adminsIds.AddRange(txtAdmin.Text.Split(',').Select(s => long.Parse(s.Trim())));
+            UpdateAdmins();
 
             adminsIds.ForEach(async id =>
             {
@@ -146,6 +158,13 @@ namespace ControleRemotoBot
                 }
                 catch { }
             });
+        }
+
+        private void UpdateAdmins()
+        {
+            adminsIds.Clear();
+            if (!string.IsNullOrEmpty(txtAdmin.Text))
+                adminsIds.AddRange(txtAdmin.Text.Split(',').Select(s => long.Parse(s.Trim())));
         }
 
         private void btnAddCommand_Click(object sender, EventArgs e)
@@ -224,7 +243,7 @@ namespace ControleRemotoBot
             ltbConfiguredCommands.Items.RemoveAt(index - 1);
             ltbConfiguredCommands.Items.Insert(index, item);
 
-            ltbConfiguredCommands.SelectedIndex = index;            
+            ltbConfiguredCommands.SelectedIndex = index;
         }
 
         private bool IsInvalid() => ltbConfiguredCommands.Items.Count <= 0 && (bot == null || bot.IsReceiving);
