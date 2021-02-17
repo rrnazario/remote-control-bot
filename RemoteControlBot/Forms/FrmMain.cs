@@ -64,6 +64,7 @@ namespace ControleRemotoBot
         private void btnIniciar_Click(object sender, EventArgs e)
         {
             bool isReceiving = false;
+
             if (bot != null && bot.IsReceiving)
             {
                 bot.StopReceiving();
@@ -75,7 +76,23 @@ namespace ControleRemotoBot
             }
             else
             {
-                bot = new(txtToken.Text);
+                if (string.IsNullOrEmpty(txtToken.Text))
+                {
+
+                    MessageBox.Show("Please, inform the Telegram bot token.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                try
+                {
+                    bot = new(txtToken.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Please, inform a valid Telegram bot token.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 bot.OnMessage += OnMessage;
                 bot.StartReceiving();
 
