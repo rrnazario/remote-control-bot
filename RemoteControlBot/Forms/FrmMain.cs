@@ -224,11 +224,17 @@ namespace ControleRemotoBot
             if (index == 0) return;
 
             var item = ltbConfiguredCommands.SelectedItem;
+            var cmdItem = commands[index];
             index--;
             ltbConfiguredCommands.Items.RemoveAt(index + 1);
             ltbConfiguredCommands.Items.Insert(index, item);
 
+            commands.RemoveAt(index + 1);
+            commands.Insert(index, cmdItem);
+
             ltbConfiguredCommands.SelectedIndex = index;
+
+            SaveCommands();
         }
 
         private void btnDown_Click(object sender, EventArgs e)
@@ -239,11 +245,18 @@ namespace ControleRemotoBot
             if (index == ltbConfiguredCommands.Items.Count - 1) return;
 
             var item = ltbConfiguredCommands.SelectedItem;
+            var cmdItem = commands[index];
+
             index++;
             ltbConfiguredCommands.Items.RemoveAt(index - 1);
             ltbConfiguredCommands.Items.Insert(index, item);
 
+            commands.RemoveAt(index - 1);
+            commands.Insert(index, cmdItem);
+
             ltbConfiguredCommands.SelectedIndex = index;
+
+            SaveCommands();
         }
 
         private bool IsInvalid() => ltbConfiguredCommands.Items.Count <= 0 && (bot == null || bot.IsReceiving);

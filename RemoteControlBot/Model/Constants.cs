@@ -48,6 +48,10 @@ namespace ControleRemotoBot.Model
                 "Enter",
                 () => inputSimulator.Keyboard.KeyDown(VirtualKeyCode.RETURN)
             },
+            {
+                "F11",
+                () => inputSimulator.Keyboard.KeyDown(VirtualKeyCode.F11)
+            },
         };
     }
 }
